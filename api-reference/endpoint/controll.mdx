@@ -5,63 +5,73 @@ description: "This endpoint updates an existing user."
 
 ### Body
 
-<ParamField body="name" type="string">
-  This is the name of the user group.
+<ParamField body="command" type="string">
+  This variable is used internally by the api. It is recommended to no change it in any way.
 </ParamField>
 
-<ParamField body="user_group_id" type="string">
-  This is the ID you use to identify this user group in your database.
+<ParamField body="deviceid" type="string">
+  This is the ID of the device to be controlled.
 </ParamField>
 
-<ParamField body="mapping" type="object">
-  This is a JSON mapping of schema id to either the data source that this user
-  group should be associated with or id of the datasource you provided when
-  creating it.
+<ParamField body="onoff1" type="number 1 or 0">
+  This field is used to turn the pin 1 on or off.
 </ParamField>
 
-<ParamField body="properties" type="object">
-  This is a JSON object for properties assigned to this user group. These will
-  be accessible through variables in the dashboards and SQL editor
+<ParamField body="onoff2" type="number 1 or 0">
+  This field is used to turn the pin 2 on or off.
+</ParamField>
+
+<ParamField body="onoff3" type="number 1 or 0">
+  This field is used to turn the pin 3 on or off.
+</ParamField>
+
+<ParamField body="onoff4" type="number 1 or 0">
+  This field is used to turn the pin 4 on or off.
+</ParamField>
+
+<ParamField body="onoff5" type="number 1 or 0">
+  This field is used to turn the pin 5 on or off.
+</ParamField>
+
+<ParamField body="onoff6" type="number 1 or 0">
+  This field is used to turn the pin 6 on or off.
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="message" type="string">
+  Indicates the response type. If the request was valid, ou will receive success.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
+<ResponseField name="response" type="object">
 
-The contents of the user group
+Current state of the device and its pins
 
 <Expandable title="Toggle object">
 
-<ResponseField name="team_id" type="number">
-  Indicates whether a new user group was created.
-</ResponseField>
+<ParamField body="onoff1" type="number 1 or 0">
+  This field is used to turn the pin 1 on or off.
+</ParamField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
-</ResponseField>
+<ParamField body="onoff2" type="number 1 or 0">
+  This field is used to turn the pin 2 on or off.
+</ParamField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
-</ResponseField>
+<ParamField body="onoff3" type="number 1 or 0">
+  This field is used to turn the pin 3 on or off.
+</ParamField>
 
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
-</ResponseField>
+<ParamField body="onoff4" type="number 1 or 0">
+  This field is used to turn the pin 4 on or off.
+</ParamField>
 
-<ResponseField name="properties" type="JSON | Null">
-  This is the properties object if it was provided in the request body
-</ResponseField>
+<ParamField body="onoff5" type="number 1 or 0">
+  This field is used to turn the pin 5 on or off.
+</ParamField>
 
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'
-</ResponseField>
+<ParamField body="onoff6" type="number 1 or 0">
+  This field is used to turn the pin 6 on or off.
+</ParamField>
 
 </Expandable>
 
@@ -70,14 +80,18 @@ The contents of the user group
 <RequestExample>
 
 ```bash Example Request
-curl --location --request PUT 'https://api.mintlify.com/api/user' \
+curl --location --request POST 'https://epviapi.in/control' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-    "user_group_id": "example_1",
-    "name": "Example 1",
-    "mapping": {"40": "213", "134": "386"},
-    "properties": {"filterValue": "value"}
+   "command": "data", // string - data
+   "deviceid": "epvitest", // string - deviceId
+   "onoff1":1, // int 1 or 0
+   "onoff2":1, // int 1 or 0
+   "onoff3":1, // int 1 or 0
+   "onoff4":1, // int 1 or 0
+   "onoff5":1, // int 1 or 0
+   "onoff6":1, // int 1 or 0
 }'
 ```
 
@@ -87,13 +101,17 @@ curl --location --request PUT 'https://api.mintlify.com/api/user' \
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 113,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "ok",
-    "provided_id": "6"
-  }
+   "response": {
+      "command": "data",
+      "deviceid": "epvitest",
+      "onoff1": 1,
+      "onoff2": 1,
+      "onoff3": 0,
+      "onoff4": 0,
+      "onoff5": 0,
+      "onoff6": 1
+   },
+   "message": "success"
 }
 ```
 
