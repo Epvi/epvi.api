@@ -36,7 +36,6 @@
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
-        "api-reference/endpoint/live",
         "api-reference/endpoint/controll"
       ]
     }

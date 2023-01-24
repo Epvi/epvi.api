@@ -1,6 +1,6 @@
 ---
 title: "Controll Devices"
-description: "This endpoint updates an existing user."
+description: "This endpoint can update the state of a device, or of any pin of that device."
 ---
 
 ### Body
@@ -40,7 +40,7 @@ description: "This endpoint updates an existing user."
 ### Response
 
 <ResponseField name="message" type="string">
-  Indicates the response type. If the request was valid, ou will receive success.
+  Indicates the response type. If the request was valid, you will receive success.
 </ResponseField>
 
 <ResponseField name="response" type="object">
@@ -82,7 +82,7 @@ Current state of the device and its pins
 ```bash Example Request
 curl --location --request POST 'https://epviapi.in/control' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
+--header 'Authorization: Bearer <token>' \
 --data-raw '{
    "command": "data", // string - data
    "deviceid": "epvitest", // string - deviceId
