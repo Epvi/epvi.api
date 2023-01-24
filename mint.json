@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "EPVI",
   "logo": {
-    "dark": "/logo/darks.png",
-    "light": "/logo/lights.png"
+    "dark": "/logo/logo.jpeg",
+    "light": "/logo/logo.jpeg"
   },
   "favicon": "/favicon.png",
   "colors": {
