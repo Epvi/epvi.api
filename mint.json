@@ -45,10 +45,10 @@
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
+        "api-reference/endpoint/live",
+        "api-reference/endpoint/controll",
         "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete",
-        "api-reference/endpoint/controll"
+        "api-reference/endpoint/update"
       ]
     }
   ],
