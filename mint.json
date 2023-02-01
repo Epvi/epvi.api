@@ -12,32 +12,11 @@
     "dark": "#0050B4"
   },
   "topbarLinks": [],
-  "anchors": [
-    {
-      "name": "API Reference",
-      "icon": "rectangle-terminal",
-      "url": "api-reference"
-    }
-  ],
+  "anchors": [],
   "navigation": [
     {
-      "group": "Home",
-      "pages": ["introduction", "development"]
-    },
-    {
-      "group": "Learn More",
-      "pages": ["features", "resources"]
-    },
-    {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/controll"
-      ]
+      "pages": ["authentication", "get", "controll"]
     }
   ],
   "footerSocials": {
