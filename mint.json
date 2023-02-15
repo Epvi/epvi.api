@@ -16,7 +16,12 @@
   "navigation": [
     {
       "group": "API Documentation",
-      "pages": ["authentication", "get", "controll"]
+      "pages": [
+        "authentication",
+        "get",
+        "controll",
+        "livedata"
+      ]
     }
   ],
   "footerSocials": {

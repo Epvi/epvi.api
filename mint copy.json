@@ -31,15 +31,23 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "development"]
+      "pages": [
+        "introduction",
+        "development"
+      ]
     },
     {
       "group": "Learn More",
-      "pages": ["features", "resources"]
+      "pages": [
+        "features",
+        "resources"
+      ]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "pages": [
+        "api-reference/authentication"
+      ]
     },
     {
       "group": "Endpoint Examples",

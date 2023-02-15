@@ -4,18 +4,21 @@ description: "This endpoint provides logs data for a certain period.
 This endpoint only supports 6 pin smifi devices."
 ---
 
-### Body
+### Query parameters
 
 <ParamField body="deviceid" type="string">
   This is id of the device for which data will be fetched.
 </ParamField>
 
 <ParamField body="startTime" type="number">
-  The period of required data will start from time provided in startTime. It should be represented in milliseconds. And the startTime shall not be earlier that 30 days before the request.
+  The period of required data will start from time provided in startTime. It
+  should be represented in milliseconds. And the startTime shall not be earlier
+  that 30 days before the request.
 </ParamField>
 
 <ParamField body="endTime" type="number">
-  This represents the end of the period for which data is requested. It should be represented in milliseconds.
+  This represents the end of the period for which data is requested. It should
+  be represented in milliseconds.
 </ParamField>
 
 ### Response
@@ -85,7 +88,7 @@ curl --location --request GET 'https://epviapi.in/devicelogs?deviceId=epvitest&s
     "curr4": 2839.0,
     "curr5": 473.0,
     "curr6": 27849.0
-  },
+  }
 ]
 ```
 

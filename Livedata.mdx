@@ -1,118 +1,75 @@
-
 ---
-title: "Controll Devices"
-description: "This endpoint can update the state of a device, or of any pin of that device."
+title: "Live Data"
+description: "This endpoint makes incoming data live to client."
 ---
 
-### Body
+### Request
 
-<ParamField body="command" type="string">
-  This variable is used internally by the api. It is recommended to no change it in any way.
+<ResponseField>
+  Receiving request via socket.io https://socket.io/docs/v4/
+</ResponseField>
+
+<ResponseField name="deviceids" type="array">
+  deviceids is an array of strings in the query field of headers.
+</ResponseField>
+
+<ParamField body="token" type="string">
+  Token is a string in the Auth of header.
 </ParamField>
 
-<ParamField body="deviceid" type="string">
-  This is the ID of the device to be controlled.
-</ParamField>
-
-<ParamField body="onoff1" type="number 1 or 0">
-  This field is used to turn the pin 1 on or off.
-</ParamField>
-
-<ParamField body="onoff2" type="number 1 or 0">
-  This field is used to turn the pin 2 on or off.
-</ParamField>
-
-<ParamField body="onoff3" type="number 1 or 0">
-  This field is used to turn the pin 3 on or off.
-</ParamField>
-
-<ParamField body="onoff4" type="number 1 or 0">
-  This field is used to turn the pin 4 on or off.
-</ParamField>
-
-<ParamField body="onoff5" type="number 1 or 0">
-  This field is used to turn the pin 5 on or off.
-</ParamField>
-
-<ParamField body="onoff6" type="number 1 or 0">
-  This field is used to turn the pin 6 on or off.
-</ParamField>
+<RequestExample>
+```bash Example Request
+curl --location --request  'https://epviapi.in/livedata' \
+--header 'Auth:<token>' \
+--header 'Query: deviceids' \
+```
+</RequestExample>
 
 ### Response
 
-<ResponseField name="message" type="string">
-  Indicates the response type. If the request was valid, you will receive success.
-</ResponseField>
-
-<ResponseField name="response" type="object">
-
-Current state of the device and its pins
-
-<Expandable title="Toggle object">
-
-<ParamField body="onoff1" type="number 1 or 0">
-  This field is used to turn the pin 1 on or off.
+<ParamField body="voltage" type="number">
+  This field shows value of voltage.
+</ParamField>
+<ParamField body="deviceid" type="string">
+  This field shows the deviceid.
 </ParamField>
 
-<ParamField body="onoff2" type="number 1 or 0">
-  This field is used to turn the pin 2 on or off.
+<ParamField body="current1" type="number">
+  This field shows current in pin 1.
 </ParamField>
 
-<ParamField body="onoff3" type="number 1 or 0">
-  This field is used to turn the pin 3 on or off.
+<ParamField body="current2" type="number">
+  This field shows current in pin 2.
 </ParamField>
 
-<ParamField body="onoff4" type="number 1 or 0">
-  This field is used to turn the pin 4 on or off.
+<ParamField body="current3" type="number">
+  This field shows current in pin 3.
 </ParamField>
 
-<ParamField body="onoff5" type="number 1 or 0">
-  This field is used to turn the pin 5 on or off.
+<ParamField body="current4" type="number">
+  This field shows current in pin 4.
 </ParamField>
 
-<ParamField body="onoff6" type="number 1 or 0">
-  This field is used to turn the pin 6 on or off.
+<ParamField body="current5" type="number">
+  This field shows current in pin 5.
 </ParamField>
 
-</Expandable>
-
-</ResponseField>
-
-<RequestExample>
-
-```bash Example Request
-curl --location --request POST 'https://epviapi.in/control' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer <token>' \
---data-raw '{
-   "command": "data", // string - data
-   "deviceid": "epvitest", // string - deviceId
-   "onoff1":1, // int 1 or 0
-   "onoff2":1, // int 1 or 0
-   "onoff3":1, // int 1 or 0
-   "onoff4":1, // int 1 or 0
-   "onoff5":1, // int 1 or 0
-   "onoff6":1, // int 1 or 0
-}'
-```
-
-</RequestExample>
+<ParamField body="current6" type="number">
+  This field shows current in pin 6.
+</ParamField>
 
 <ResponseExample>
 
 ```json Response
 {
-   "response": {
-      "command": "data",
-      "deviceid": "epvitest",
-      "onoff1": 1,
-      "onoff2": 1,
-      "onoff3": 0,
-      "onoff4": 0,
-      "onoff5": 0,
-      "onoff6": 1
-   },
-   "message": "success"
+  "deviceid": "epvi152",
+  "voltage": 244.0,
+  "current1": 0.04,
+  "current2": 0.02,
+  "current3": 0.05,
+  "current4": 0.01,
+  "current5": 0.01,
+  "current6": 0.01
 }
 ```
 
