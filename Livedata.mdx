@@ -1,1 +1,119 @@
 
+---
+title: "Controll Devices"
+description: "This endpoint can update the state of a device, or of any pin of that device."
+---
+
+### Body
+
+<ParamField body="command" type="string">
+  This variable is used internally by the api. It is recommended to no change it in any way.
+</ParamField>
+
+<ParamField body="deviceid" type="string">
+  This is the ID of the device to be controlled.
+</ParamField>
+
+<ParamField body="onoff1" type="number 1 or 0">
+  This field is used to turn the pin 1 on or off.
+</ParamField>
+
+<ParamField body="onoff2" type="number 1 or 0">
+  This field is used to turn the pin 2 on or off.
+</ParamField>
+
+<ParamField body="onoff3" type="number 1 or 0">
+  This field is used to turn the pin 3 on or off.
+</ParamField>
+
+<ParamField body="onoff4" type="number 1 or 0">
+  This field is used to turn the pin 4 on or off.
+</ParamField>
+
+<ParamField body="onoff5" type="number 1 or 0">
+  This field is used to turn the pin 5 on or off.
+</ParamField>
+
+<ParamField body="onoff6" type="number 1 or 0">
+  This field is used to turn the pin 6 on or off.
+</ParamField>
+
+### Response
+
+<ResponseField name="message" type="string">
+  Indicates the response type. If the request was valid, you will receive success.
+</ResponseField>
+
+<ResponseField name="response" type="object">
+
+Current state of the device and its pins
+
+<Expandable title="Toggle object">
+
+<ParamField body="onoff1" type="number 1 or 0">
+  This field is used to turn the pin 1 on or off.
+</ParamField>
+
+<ParamField body="onoff2" type="number 1 or 0">
+  This field is used to turn the pin 2 on or off.
+</ParamField>
+
+<ParamField body="onoff3" type="number 1 or 0">
+  This field is used to turn the pin 3 on or off.
+</ParamField>
+
+<ParamField body="onoff4" type="number 1 or 0">
+  This field is used to turn the pin 4 on or off.
+</ParamField>
+
+<ParamField body="onoff5" type="number 1 or 0">
+  This field is used to turn the pin 5 on or off.
+</ParamField>
+
+<ParamField body="onoff6" type="number 1 or 0">
+  This field is used to turn the pin 6 on or off.
+</ParamField>
+
+</Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request POST 'https://epviapi.in/control' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+--data-raw '{
+   "command": "data", // string - data
+   "deviceid": "epvitest", // string - deviceId
+   "onoff1":1, // int 1 or 0
+   "onoff2":1, // int 1 or 0
+   "onoff3":1, // int 1 or 0
+   "onoff4":1, // int 1 or 0
+   "onoff5":1, // int 1 or 0
+   "onoff6":1, // int 1 or 0
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+   "response": {
+      "command": "data",
+      "deviceid": "epvitest",
+      "onoff1": 1,
+      "onoff2": 1,
+      "onoff3": 0,
+      "onoff4": 0,
+      "onoff5": 0,
+      "onoff6": 1
+   },
+   "message": "success"
+}
+```
+
+</ResponseExample>
